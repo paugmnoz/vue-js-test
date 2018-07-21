@@ -29,23 +29,7 @@
         data() {
             return {
                 newUser: {},
-                users: [{
-                    name: "Paula G",
-                    email: "pg@gmail.com",
-                    contacted: false
-                }, {
-                    name: "Tom G",
-                    email: "tom@gmail.com",
-                    contacted: false
-                }, {
-                    name: "Nick G",
-                    email: "nick@gmail.com",
-                    contacted: false
-                }, {
-                    name: "Jules G",
-                    email: "jj@gmail.com",
-                    contacted: false
-                }]
+                users: []
             }
         },
 
@@ -66,7 +50,7 @@
         created: function() {
             this.$http.get('https://jsonplaceholder.typicode.com/users')
                 .then(function(response) {
-                    console.log(response.data);
+                    this.users = response.data;
                 });
         }
 
